@@ -46,6 +46,7 @@
     "class-validator": "^0.13.1",
     "dotenv": "^10.0.0",
     "helmet": "^4.6.0",
+    "nest-winston": "^1.8.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
@@ -54,7 +55,9 @@
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
     "swagger-ui-express": "^4.1.6",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.2.37",
+    "winston": "^3.8.2",
+    "winston-elasticsearch": "^0.17.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.1",

@@ -1,16 +1,17 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { Cron, CronExpression, Interval, Timeout } from '@nestjs/schedule';
 import { LoggerService } from 'src/logger/logger.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
-
+import { Logger } from 'winston';
+import { WINSTON_MODULE_PROVIDER } from 'nest-winston';
 @Injectable()
 export class TasksService {
-  constructor(private readonly logger: LoggerService = new Logger(TasksService.name)) {}
+  constructor(@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger) {}
 
   @Cron(CronExpression.EVERY_10_SECONDS)
   handleCron() {
-    this.logger.debug('Called when the current second is 10');
+    this.logger.info('Called when the current second is 10');
   }
 
   @Interval(10000)
